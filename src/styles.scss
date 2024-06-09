@@ -1,0 +1,129 @@
+$shaft-color: #1d252b;
+$door-color: #bbb;
+$status-color: #e4b16c;
+
+body {
+  background-color: black;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.elevator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  margin-bottom: var(--size-31);
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elevator-example {
+  display: inline-flex;
+  margin-bottom: var(--size-31);
+
+  &__status {
+    background-color: var(--color-black);
+    border-radius: 5px;
+    color: $status-color;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    padding: 1rem;
+  }
+
+  &__button {
+    &--item {
+      appearance: none;
+      background-color: white;
+      border: 3px solid black;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 800;
+      height: 3rem;
+      margin: 1rem;
+      outline: none;
+      width: 3rem;
+      transition: all 200ms ease-out;
+      
+      &:hover {
+        opacity: .8;
+      }
+
+      @media screen and (min-width: 800px) {
+        border: 5px solid black;
+        font-size: 1.8rem;
+        height: 4rem;
+        width: 4rem;
+      }
+    }
+    
+
+  }
+
+  &__building {
+    background: black;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 300px;
+  }
+
+  &__shaft {
+    background: $shaft-color;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    width: 33.33%;
+  }
+
+  &__elevator {
+    bottom: 0;
+    height: 500px;
+    position: absolute;
+    width: 100%;
+
+    &--cab {
+      background-size: 100% 100%;
+      height: 20%;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+    }
+
+    &--door {
+      background: $door-color;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: all 300ms ease-in;
+      width: 49%;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        background: $door-color;
+        right: 0;
+      }
+
+      &.active-right {
+        right: -50%;
+      }
+
+      &.active-left {
+        left: -50%;
+      }
+    }
+  }
+}
