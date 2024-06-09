@@ -1,1 +1,2 @@
 # ElevatorGUI
+This is a GUI to interface with the ElevatorAPI. This is designed to scale to add unlimited amount of elevators. The design was a simple visual representation of the evelvator that moves to the requested floor as you select different floors. Assumptions for this was that there was no call button, the elevator simply moved to each floor. It supports moving up and down and prevents the same floor button from doing anything, the elevator remains on station in an idle status.
